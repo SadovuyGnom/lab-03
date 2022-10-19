@@ -1,3 +1,5 @@
+#include "histogram.h"
+
 #include <math.h>
 #include <iostream>
 #include <conio.h>
@@ -53,24 +55,24 @@ show_histogram_svg(const vector<size_t>& bins) {
 }
 
 
-void
-find_minmax(const vector<double>& numbers, double& min, double& max) //ïîèñê ìèíèìàëüíîãî è ìàêñ ÷èñåë
-{
-    min = numbers[0];
-    max = numbers[0];
-    for (double number : numbers)
-    {
-        if (number < min)
-        {
-            min = number;
-        }
+//void
+//find_minmax(const vector<double>& numbers, double& min, double& max) //ïîèñê ìèíèìàëüíîãî è ìàêñ ÷èñåë
+//{
+    //min = numbers[0];
+    //max = numbers[0];
+    //for (double number : numbers)
+    //{
+        //if (number < min)
+        //{
+            //min = number;
+        //}
 
-        if (number > max)
-        {
-            max = number;
-        }
-    }
-}
+        //if (number > max)
+        //{
+            //max = number;
+        //}
+    //}
+//}
 
 vector<size_t>
 make_histogram(const vector<double>& numbers, size_t bin_count) //ñîçäàíèå ãèñòîãðàìû
