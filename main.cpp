@@ -4,6 +4,8 @@
 #include <iostream>
 #include <conio.h>
 #include <vector>
+#include <curl/curl.h>
+
 using namespace std;
 
 struct Input {
@@ -106,7 +108,7 @@ show_histogram_text(vector<size_t> bins) //âûâîä ãèñòîãðàìû çâ�
 
 int main(istream& in, bool prompt, const vector<double>& numbers, size_t bin_count)
 {
-
+    curl_global_init(CURL_GLOBAL_ALL);
 
     const auto input = read_input(cin, true);
 
