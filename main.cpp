@@ -8,51 +8,15 @@ using namespace std;
 
 
 
-//void
-//find_minmax(const vector<double>& numbers, double& min, double& max) //ïîèñê ìèíèìàëüíîãî è ìàêñ ÷èñåë
-//{
-    //min = numbers[0];
-    //max = numbers[0];
-    //for (double number : numbers)
-    //{
-        //if (number < min)
-        //{
-            //min = number;
-        //}
-
-        //if (number > max)
-        //{
-            //max = number;
-        //}
-    //}
-//}
-
-vector<size_t>
-make_histogram(const vector<double>& numbers, size_t bin_count) //ñîçäàíèå ãèñòîãðàìû
-{
-    double min, max;
-    find_minmax(numbers, min, max);
-    vector<size_t> bins(bin_count, 0);
-    double bin_size = (max - min) / bin_count;
+vector<double> input_numbers(istream& in, size_t cnt) {
+    vector<double> result(cnt);
+    for (size_t i = 0; i < cnt; i++)
 
     for (double number : numbers)
     {
-        bool found = false;
-        for (size_t j = 0; j < (bin_count - 1) && !found; j++)
-        {
-            auto low = min + j * bin_size;
-            auto hight = min + (j + 1) * bin_size;
-
-            if ((low <= number) && (number < hight)) {
-                bins[j]++;
-                found = true;
-            }
-        }
-        if (!found) {
-            bins[bin_count - 1]++;
-        }
+        in >> result[i];
     }
-    return bins;
+    return result;
 }
 
 void
@@ -95,18 +59,9 @@ show_histogram_text(vector<size_t> bins) //âûâîä ãèñòîãðàìû çâ�
     }
 }
 
-vector<double>
-input_numbers(size_t count) // ââîä ÷èñåë
-{
-    vector<double> result(count);
-    for (size_t i = 0; i < count; i++) {
-        cin >> result[i];
-    }
-    return result;
-}
 
 
-int main()
+int main(istream& in)
 {
     //ââîä äàííûõ
 
@@ -116,7 +71,7 @@ int main()
     cin >> number_count;
     cerr << "Enter numbers: ";
 
-    const auto numbers = input_numbers(number_count);
+    const auto numbers = input_numbers(in , number_count);
 
     size_t bin_count;
     cerr << "Enter bin count: ";

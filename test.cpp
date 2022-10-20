@@ -1,6 +1,9 @@
 #include "histogram.h"
 
+#include "svg.h"
 #include <cassert>
+#include <math.h>
+#include <iostream>
 
 void
 test_positive() {
@@ -46,7 +49,12 @@ test_vacuum() {
     assert(min == -10000);
     assert(max == 10000);
 }
-
+void
+test_count() {
+    double count = 1;
+    input_numbers(count);
+    assert(count == 1);
+}
 
 int
 main() {
@@ -55,4 +63,5 @@ main() {
     test_same();
     test_single();
     test_vacuum();
+    test_count();
 }
